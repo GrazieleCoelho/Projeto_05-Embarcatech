@@ -9,7 +9,7 @@
 // Implementação de ws2812_put
 // --------------------------------------------------
 // O arquivo ws2812.pio.h não fornece uma implementação para ws2812_put.
-// Definimos esta função para enviar os dados do pixel para o PIO.
+// Defini esta função para enviar os dados do pixel para o PIO.
 void ws2812_put(PIO pio, uint sm, uint32_t color) {
     pio_sm_put_blocking(pio, sm, color << 8u);
 }
@@ -22,7 +22,7 @@ void ws2812_put(PIO pio, uint sm, uint32_t color) {
 #define BUTTON_A_PIN    5      // Botão A: incrementa número
 #define BUTTON_B_PIN    6      // Botão B: decrementa número
 
-// Alterado: use o pino correto para o canal vermelho do LED RGB
+// Uso do pino 13 para o canal vermelho do LED RGB
 #define LED_RED_PIN     13     // LED RGB – canal vermelho (para piscar)
 
 #define DEBOUNCE_MS     200    // Tempo de debounce (200 ms)
@@ -56,7 +56,7 @@ const int led_index_map[5][5] = {
 
 // --------------------------------------------------
 // Padrões dos dígitos (0 a 9) em formato 5x5
-// Cada padrão é uma matriz 5×5 de floats (1.0 = LED aceso; 0.0 = LED apagado)
+// Cada padrão é uma matriz 5×5 de floats (1.0 = LED aceso e intensidade 100%; 0.0 = LED apagado)
 // --------------------------------------------------
 const float digit_patterns[10][5][5] = {
     // Dígito 0
